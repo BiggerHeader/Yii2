@@ -51,6 +51,15 @@ $this->params['breadcrumbs'][] = $this->title;*/
                     </div>
                 </div>
             <?php } ?>
+            <?php if (!empty($tips_login)) { ?>
+                <div id="comments">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <strong><?= $tips_login  ?></strong>
+                    </div>
+                </div>
+            <?php } ?>
             <!--显示标签-->
             <br>
             <div class="nav">

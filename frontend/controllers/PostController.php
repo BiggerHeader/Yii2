@@ -17,7 +17,8 @@ use common\models\Tag;
  */
 class PostController extends Controller
 {
-    public  $submit_comment;
+    protected  $submit_comment;
+    protected $tips_login;
     /**
      * @inheritdoc
      */
@@ -170,6 +171,9 @@ class PostController extends Controller
             $commentModel->post_id = $id;
             $commentModel->create_time = time();
 //            var_dump($commentModel);exit();
+            if(Yii::$app->user->isGuest){
+                $this->tips_login = "你没有登录，请先登录！谢谢";
+            }
             if($commentModel->save()){
                // var_dump($commentModel);exit();
                 $this->submit_comment = 1;
@@ -183,6 +187,7 @@ class PostController extends Controller
             'recentComments'=>$recentComments,
             'commentModel'=>$commentModel,
             'submit_comment'=>$this->submit_comment,
+            'tips_login'=>$this->tips_login,
         ]);
     }
 }
