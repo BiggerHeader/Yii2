@@ -57,7 +57,6 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
-    var_dump(Adminuser::className());
         //获取标签
         $tags = Tag::findTagWeight();
         //var_dump($tags);exit();
