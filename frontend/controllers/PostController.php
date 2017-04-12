@@ -65,7 +65,6 @@ class PostController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         //获取最新评论
         $recentComments = Comment::RecentComment();
-        var_dump($searchModel);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
