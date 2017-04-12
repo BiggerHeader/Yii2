@@ -57,6 +57,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
+    var_dump(Adminuser::className());
         //获取标签
         $tags = Tag::findTagWeight();
         //var_dump($tags);exit();
@@ -65,6 +66,7 @@ class PostController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         //获取最新评论
         $recentComments = Comment::RecentComment();
+        var_dump($searchModel);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

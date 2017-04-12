@@ -76,7 +76,7 @@ class PostSearch extends Post
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Post.id' => $this->id,
+            'post.id' => $this->id,
             'status' => $this->status,
             'create_time' => $this->create_time,
             'update_time' => $this->update_time,
@@ -88,14 +88,14 @@ class PostSearch extends Post
             ->andFilterWhere(['like', 'tags', $this->tags]);
 
        //  连接查询
-        $query->join('INNER  JOIN', 'Adminuser','Adminuser.id = post.author_id');
+        $query->join('INNER  JOIN', 'adminuser','adminuser.id = post.author_id');
         //var_dump($query);exit(0);
         //添加过滤的字段
-        $query->andFilterWhere(['like','Adminuser.username',$this->authorName]);
+        $query->andFilterWhere(['like','adminuser.username',$this->authorName]);
         // 排序
         $dataProvider->sort->attributes['authorName'] = [
-            'asc'=>['Adminuser.username'=>SORT_DESC],
-            'desc'=>['Adminuser.username'=>SORT_ASC],
+            'asc'=>['adminuser.username'=>SORT_DESC],
+            'desc'=>['adminuser.username'=>SORT_ASC],
         ];
 
         return $dataProvider;
