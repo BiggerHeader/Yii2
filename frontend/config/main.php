@@ -39,7 +39,7 @@ return [
             'errorAction' => 'site/error',
         ],
 
-        'urlManager' => [
+       /* 'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             //做伪静态
@@ -49,7 +49,7 @@ return [
                 '<controller:\w+>/<id:\d+>'=>'<controller>/detail',
                 'posts'=>'post/index',
             ],
-        ],
+        ],*/
 
     ],
     'params' => $params,
