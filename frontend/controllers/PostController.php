@@ -165,11 +165,13 @@ class PostController extends Controller
         //判断处理请求
 
         if($commentModel->load(Yii::$app->request->post())){
+
             $commentModel->status = 2;
             $commentModel->post_id = $id;
             $commentModel->create_time = time();
-           // var_dump($commentModel);exit();
+//            var_dump($commentModel);exit();
             if($commentModel->save()){
+               // var_dump($commentModel);exit();
                 $this->submit_comment = 1;
             }
         }

@@ -5,6 +5,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
@@ -45,7 +46,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         //可以在组件中引用timestap 行为  $user->timestap
         return [
-
+            TimestampBehavior::className(),
         ];
     }
 
